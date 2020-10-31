@@ -4,7 +4,7 @@ from loguru import logger
 
 
 class Route(object):
-    def __init__(self, host, dictionary, host_regex='Host\(\`(.*?)\`\)', *args, **kwargs):
+    def __init__(self, host, dictionary, host_regex='Host\(\`(.*?)\`\)', *args, **kwargs):  # noqa: W605
         super().__init__(*args, **kwargs)
         self.host = host
         self._dictionary = dictionary
