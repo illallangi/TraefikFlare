@@ -28,7 +28,7 @@ from notifiers.logging import NotificationHandler
 @option('--slack-username',
         type=STRING,
         envvar='SLACK_USERNAME',
-        default=__name__)
+        default=basename(argv[0]))
 @option('--slack-format',
         type=STRING,
         envvar='SLACK_FORMAT',
@@ -53,15 +53,15 @@ from notifiers.logging import NotificationHandler
         type=STRING,
         envvar='CLOUDFLARE_API_KEY',
         required=True)
-def main(log_level,
-         slack_webhook,
-         slack_username,
-         slack_format,
-         sleep_time,
-         traefik_url,
-         ipify_url,
-         cloudflare_email,
-         cloudflare_api_key):
+def TraefikFlare(log_level,
+                 slack_webhook,
+                 slack_username,
+                 slack_format,
+                 sleep_time,
+                 traefik_url,
+                 ipify_url,
+                 cloudflare_email,
+                 cloudflare_api_key):
     logger.remove()
     logger.add(stderr, level=log_level)
 
@@ -215,4 +215,4 @@ def main(log_level,
 
 
 if __name__ == "__main__":
-    main()
+    TraefikFlare()

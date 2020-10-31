@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="illallangi-traefikflare",
+    name="illallangi.traefikflare",
     version="0.0.1",
     author="Andrew Cole",
     author_email="andrew.cole@illallangi.com",
@@ -20,10 +20,11 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     entry_points={
-        'console_scripts': ['traefikflare=illallangi.traefikflare:__main__.cli'],
+        'console_scripts': ['traefikflare=illallangi:TraefikFlare'],
     },
     install_requires=[
-        'Click',
+        'CloudFlare',
+        'click',
         'loguru',
         'notifiers',
         'yarl',
