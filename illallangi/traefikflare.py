@@ -112,6 +112,9 @@ def TraefikFlare(log_level,
     while True:
         try:
             hosts = traefik.routes.hosts
+            logger.info(f'Traefik connection OK, {len(hosts)} hosts found:')
+            for host in hosts:
+                logger.info(f'  {host}')
         except Exception as e:
             logger.error(f'Exception getting hosts from {traefik_url}: {e}')
             previous = None
