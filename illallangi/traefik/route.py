@@ -4,7 +4,7 @@ from loguru import logger
 
 
 class Route(object):
-    def __init__(self, host, dictionary, host_regex='Host\(\`(.*?)\`\)', *args, **kwargs):  # noqa: W605
+    def __init__(self, host, dictionary, host_regex='Host(SNI)?\(\`(.*?)\`\)', *args, **kwargs):  # noqa: W605
         super().__init__(*args, **kwargs)
         self.host = host
         self._dictionary = dictionary
@@ -46,4 +46,4 @@ class Route(object):
 
     @property
     def hosts(self):
-        return list(set(self.host_regex.findall(self.rule)))
+        return list(set([match[1] for match in self.host_regex.findall(self.rule)]))
