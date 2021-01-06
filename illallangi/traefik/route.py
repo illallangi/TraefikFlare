@@ -46,4 +46,4 @@ class Route(object):
 
     @property
     def hosts(self):
-        return list(set([match[1] for match in self.host_regex.findall(self.rule)]))
+        return list({match[1] for match in self.host_regex.findall(self.rule)})
