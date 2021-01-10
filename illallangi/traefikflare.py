@@ -100,7 +100,7 @@ def TraefikFlare(
     while True:
         try:
             hosts = traefik.routes.hosts
-            logger.info(f"Traefik connection OK, {hosts} hosts found:")
+            logger.info(f"Traefik connection OK, {len(hosts)} hosts found:")
             for host in hosts:
                 logger.info(f"  {host}")
         except Exception as e:

@@ -5,8 +5,13 @@ from loguru import logger
 
 class Route(object):
     def __init__(
-        self, host, dictionary, host_regex="Host(SNI)?(`(.*?)`)", *args, **kwargs
-    ):  # noqa: W605
+        self,
+        host,
+        dictionary,
+        host_regex="Host(SNI)?\(`(.*?)`\)",  # noqa: W605
+        *args,
+        **kwargs,
+    ):
         super().__init__(*args, **kwargs)
         self.host = host
         self._dictionary = dictionary
@@ -34,6 +39,7 @@ class Route(object):
             "status",
             "tls",
             "using",
+            "error",
         ]
 
     def __repr__(self):
@@ -49,6 +55,10 @@ class Route(object):
     @property
     def rule(self):
         return self._dictionary["rule"]
+
+    @property
+    def error(self):
+        return self._dictionary.get("error")
 
     @property
     def hosts(self):

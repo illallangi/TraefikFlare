@@ -62,7 +62,7 @@ class RouteCollection(Sequence):
 
     @property
     def hosts(self):
-        return list({host for route in self for host in route.hosts})
+        return list({host for route in self if not route.error for host in route.hosts})
 
 
 def forever(start=0):
