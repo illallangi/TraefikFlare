@@ -11,10 +11,10 @@ class IPIFY(object):
         self.url = URL(url) if not isinstance(url, URL) else url
 
     def __repr__(self):
-        return f'{self.__class__}({self.url})'
+        return f"{self.__class__}({self.url})"
 
     def __str__(self):
-        return f'{self.url}'
+        return f"{self.url}"
 
     @property
     def ip_address(self):
